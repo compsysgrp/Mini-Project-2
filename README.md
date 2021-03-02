@@ -44,6 +44,7 @@ CPU: Intel Core i5 4690 @ 3.50GHz
 | 1.5 GB    | -         | -         | -          | -          | 2818.228s  | -           | -           | -           |
 
 *higher thread counts for smaller file sizes were not used as there was little significant decrease in runtime
+
 *thread counts for bigger files were not used due to hardware limitations
 
 ![image](https://user-images.githubusercontent.com/71051737/109592595-830d9a80-7add-11eb-9b77-edb1c293d2b2.png)
