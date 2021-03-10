@@ -136,7 +136,7 @@ int main(int argc, char *argv[])
     comp_arr = malloc(max_itr);
 
     printf("Starting timer for compression with %d threads...\r\n", max_thread);//now that stuff is set up, we start timing
-    clock_t start = clock();
+    start = clock();
 
         while(1)
         {
