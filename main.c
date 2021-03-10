@@ -32,7 +32,7 @@ clock_t start;
 
 void *reader(void *arg)
 {
-    FILE* infile = fopen(input_file, "r");//Do we need to open this every time?`
+    FILE* infile = fopen(input_file, "r");
     fseek(infile,0,4000*read_counter);//moving the pointer to the correct multiple of 4kb
     if(read_counter==max_itr-1 && str_reminder!=0)
     {
@@ -46,7 +46,7 @@ void *reader(void *arg)
         read_arr[read_counter]= fread(buffer, sizeof(char), 4000, infile);//any read that isn't the last is 4000
         free(buffer);
     }
-    fclose(infile);//Do we need to close this every time? or just at the end of main function or w/e
+    fclose(infile);
     thread_counter--;
 }
 
@@ -65,10 +65,6 @@ void *compression(void *arg)
     deflateInit(&defstream, Z_BEST_COMPRESSION);
     deflate(&defstream, Z_FINISH);
     deflateEnd(&defstream);
-
-    //comp_arr[compress_counter]=compress(read_arr[compress_counter]);
-    //basically we want comparr[compress_counter] to = compressed readarr[compress counter]
-    //not sure exactly how tf this works if we even use the compress function, or deflate function, or if we have to change variable types then compress then switch back.
     thread_counter--;
 }
 
@@ -175,9 +171,6 @@ int main(int argc, char *argv[])
             if (write_counter == max_itr)
                 break;
         }
-
-    // Last thing that main() should do *also needs to be in each function, see commented out function as example
-
     pthread_exit(NULL);
     free(read_arr);
     free(comp_arr);
